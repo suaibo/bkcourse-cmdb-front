@@ -12,6 +12,12 @@ export default {
   },
   mutations: {
   },
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
+  // 注意：当部署上线时，需要将这里全部的 http://dev.ce.bktencent.com:8000 更改为你线上后端模块的URL！！！
   actions: {
     getTableData(context, params, config = {}) {
       // eslint-disable-next-line no-undef
@@ -20,30 +26,30 @@ export default {
     // 查询业务列表
     getBizData(context, params, config = {}) {
       // eslint-disable-next-line no-undef
-      return http.get(`https://apps.ce.bktencent.com/stag--default--bk-scut-course/biz-list`, params, config);
+      return http.get(`http://dev.ce.bktencent.com:8000/biz-list`, params, config);
     },
     // 根据业务ID，查询集群列表
     getSetData(context, params, config = {}) {
       // eslint-disable-next-line no-undef
-      const url = `https://apps.ce.bktencent.com/stag--default--bk-scut-course/set-list?${queryString.stringify(params)}`;
+      const url = `http://dev.ce.bktencent.com:8000/set-list?${queryString.stringify(params)}`;
       return http.get(url, {}, config);
     },
     // 根据业务ID和集群ID，查询模块列表
     getModuleData(context, params, config = {}) {
       // eslint-disable-next-line no-undef
-      const url = `https://apps.ce.bktencent.com/stag--default--bk-scut-course/module-list?${queryString.stringify(params)}`;
+      const url = `http://dev.ce.bktencent.com:8000/module-list?${queryString.stringify(params)}`;
       return http.get(url, {}, config);
     },
     // 根据传入的查询参数，查询主机列表
     getHostsData(context, params, config = {}) {
       // eslint-disable-next-line no-undef
-      const url = `https://apps.ce.bktencent.com/stag--default--bk-scut-course/host-list?${queryString.stringify(params)}`;
+      const url = `http://dev.ce.bktencent.com:8000/host-list?${queryString.stringify(params)}`;
       return http.get(url, {}, config);
     },
     // 根据传入的主机ID，查询主机详情信息
     getHostDetail(context, params, config = {}) {
       // eslint-disable-next-line no-undef
-      const url = `https://apps.ce.bktencent.com/stag--default--bk-scut-course/host-detail?${queryString.stringify(params)}`;
+      const url = `http://dev.ce.bktencent.com:8000/host-detail?${queryString.stringify(params)}`;
       return http.get(url, {}, config);
     },
   },
