@@ -7,19 +7,20 @@
 - 借助蓝鲸CMDB配置平台实现游戏业务主机资源拉取与查询，通过蓝鲸网关/ESB组件API联通 CMDB平台实现数据获取，并根据CMDB主机数据结构，设计查询条件与对应接口。
 - 借助蓝鲸JOB平台实现游戏业务主机日志备份
 
-- 环境搭建文档：[手把手搭建蓝鲸SaaS开发环境-Windows版](https://doc.weixin.qq.com/doc/w3_AX8A1AafADs10e95lReRLOYOveqc2?scode=AJEAIQdfAAobqdzHhJ)
+- 环境搭建文档：[手把手搭建蓝鲸SaaS开发环境-Windows版](https://doc.weixin.qq.com/doc/w3_AX8A1AafADsgPxqA1eYSNGBaxu1TZ?scode=AJEAIQdfAAonOPTizp)
 - 蓝鲸桌面：[蓝鲸桌面](https://ce.bktencent.com/console/)
 - 蓝鲸MagicBox组件库：[蓝鲸MagicBox组件文档-Vue2版本](https://magicbox.bk.tencent.com/static_api/v3/components_vue/2.0/example/index.html#/)
 
 ## 二、本地开发环境搭建
+<font color=red size=6> 所有环境相关文件均已在【软件设计与分析】QQ群中上传 </font>
 
-后端开发环境参考此前的SaaS开发环境搭建文档：[手把手搭建蓝鲸SaaS开发环境-Windows版](https://doc.weixin.qq.com/doc/w3_AX8A1AafADs10e95lReRLOYOveqc2?scode=AJEAIQdfAAobqdzHhJ)
+后端开发环境参考此前的SaaS开发环境搭建文档：[手把手搭建蓝鲸SaaS开发环境-Windows版](https://doc.weixin.qq.com/doc/w3_AX8A1AafADsgPxqA1eYSNGBaxu1TZ?scode=AJEAIQdfAAonOPTizp)
 
 ### 环境说明
 
 前端开发环境不做强制限制，实验手册中为基于蓝鲸前端开发框架MagicBox组件库的实现
 
-具体环境为NVM+Node.js v20.10.0+Vue2+MagicBox
+具体环境为<font color=red size=6>NVM+Node.js v20.10.0+Vue2+MagicBox</font>
 
 NVM安装包：[NVM安装包](https://drive.weixin.qq.com/s?k=AJEAIQdfAAoG1E2mr2)
 
@@ -47,6 +48,14 @@ BK_USER_INFO_URL = '/user'
 ```
 
 ![image-20240416165356724](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/image-20240416165356724.png)
+
+使用IDE打开解压后的前端项目模版，笔者这里使用的是WebStorm作为前端IDE，在IDE终端中切换Node JS版本，并安装前端所需依赖：
+
+![企业微信截图_17131745456125](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17131745456125.png)
+
+随后，设置NPM启动配置：
+
+![企业微信截图_17131745818084](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17131745818084.png)
 
 ![image-20240416165530752](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/image-20240416165530752.png)
 
