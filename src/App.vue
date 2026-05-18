@@ -1,35 +1,26 @@
 <template>
   <div id="app" :class="systemCls">
     <bk-navigation
-<<<<<<< HEAD
       :header-title="nav.id"
       :side-title="nav.title"
       :navigation-type="curNav.nav"
       :need-menu="curNav.needMenu"
       :default-open="true"
       @toggle="handleToggle">
-=======
-        :header-title="nav.id"
-        :side-title="nav.title"
-        :navigation-type="curNav.nav"
-        :need-menu="curNav.needMenu"
-        :default-open="true"
-        @toggle="handleToggle">
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
       <template slot="header">
         <div class="navigation-header">
           <div class="header-title">
-            <span class="ml5">{{nav.id}}</span>
+            <span class="ml5">{{ nav.id }}</span>
           </div>
           <bk-popover theme="light navigation-profile" :arrow="false" offset="-20, 10" placement="bottom-start">
             <div class="header-user" :class="{ 'is-left': curNav.nav === 'left-right' }">
-              {{user.username}}
+              {{ user.username }}
               <i class="bk-icon icon-down-shape"></i>
             </div>
             <template slot="content">
               <ul class="navigation-admin">
                 <li class="nav-item" v-for="userItem in admin.list" :key="userItem">
-                  {{userItem}}
+                  {{ userItem }}
                 </li>
               </ul>
             </template>
@@ -38,7 +29,6 @@
       </template>
       <template slot="menu">
         <bk-navigation-menu
-<<<<<<< HEAD
           ref="menu"
           @select="handleSelect"
           :default-active="nav.id"
@@ -53,41 +43,16 @@
             :disabled="item.disabled"
             :url="item.url"
             :id="item.name">
-            <span>{{item.name}}</span>
+            <span>{{ item.name }}</span>
             <div slot="child">
               <bk-navigation-menu-item
-                :key="child.name"
                 v-for="child in item.children"
+                :key="child.name"
                 :id="child.name"
                 :disabled="child.disabled"
                 :icon="child.icon"
                 :default-active="child.active">
-=======
-            ref="menu"
-            @select="handleSelect"
-            :default-active="nav.id"
-            :before-nav-change="beforeNavChange"
-            :toggle-active="nav.toggle">
-          <bk-navigation-menu-item
-              v-for="item in nav.list"
-              :key="item.name"
-              :has-child="item.children && !!item.children.length"
-              :group="item.group"
-              :icon="item.icon"
-              :disabled="item.disabled"
-              :url="item.url"
-              :id="item.name">
-            <span>{{item.name}}</span>
-            <div slot="child">
-              <bk-navigation-menu-item
-                  :key="child.name"
-                  v-for="child in item.children"
-                  :id="child.name"
-                  :disabled="child.disabled"
-                  :icon="child.icon"
-                  :default-active="child.active">
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
-                <span>{{child.name}}</span>
+                <span>{{ child.name }}</span>
               </bk-navigation-menu-item>
             </div>
           </bk-navigation-menu-item>
@@ -100,21 +65,17 @@
       </div>
       <template slot="footer">
         <div class="navigation-footer">
-          Copyright © 2012-{{curYear}} Tencent BlueKing. All Rights Reserved. 腾讯蓝鲸 版权所有
+          Copyright © 2012-{{ curYear }} Tencent BlueKing. All Rights Reserved. 腾讯蓝鲸 版权所有
         </div>
       </template>
     </bk-navigation>
     <app-auth ref="bkAuth"></app-auth>
   </div>
 </template>
+
 <script>
-<<<<<<< HEAD
 import { mapGetters } from 'vuex';
 import { bus } from '@/common/bus';
-=======
-import {mapGetters} from 'vuex';
-import {bus} from '@/common/bus';
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
 
 export default {
   name: 'App',
@@ -130,8 +91,6 @@ export default {
             url: 'example1',
           },
           {
-<<<<<<< HEAD
-=======
             name: '文件查询与备份',
             icon: 'icon-tree-application-shape',
             url: 'example3',
@@ -142,7 +101,6 @@ export default {
             url: 'example4',
           },
           {
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
             name: '登陆信息',
             icon: 'icon-tree-group-shape',
             url: 'example2',
@@ -187,10 +145,7 @@ export default {
     }
   },
   mounted() {
-<<<<<<< HEAD
-=======
     document.title = '蓝鲸应用';
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
     bus.$on('show-login-modal', (data) => {
       this.$refs.bkAuth.showLoginModal(data);
     });
@@ -228,104 +183,6 @@ export default {
 </script>
 
 <style lang="postcss">
-<<<<<<< HEAD
-    @import './css/reset.css';
-    @import './css/app.css';
-
-    .main-content {
-        min-height: 300px;
-    }
-
-    .bk-navigation {
-        outline: 1px solid #ebebeb;
-        .bk-navigation-wrapper {
-            height: calc(100vh - 252px)!important;
-        }
-    }
-
-    .navigation-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
-        height: 100%;
-        font-size: 14px;
-        .header-nav {
-            display: flex;
-            padding: 0;
-            margin: 0;
-            &-item {
-                list-style: none;
-                margin-right: 40px;
-                color: #96A2B9;
-                &.item-active {
-                    color: #FFFFFF !important;
-                }
-                &:hover {
-                    cursor: pointer;
-                    color: #D3D9E4;
-                }
-            }
-        }
-        .header-title {
-            color: #63656E;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            margin-left: -6px;
-        }
-        .header-user {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #96A2B9;
-            .bk-icon {
-                margin-left: 5px;
-                font-size: 12px;
-            }
-            &.is-left {
-                @mixin is-left-mixin false;
-            }
-            &:hover {
-                cursor: pointer;
-                color: #D3D9E4;
-            }
-        }
-    }
-
-    .navigation-content {
-        min-height: calc(100% - 84px);
-        background: #FFFFFF;
-        box-shadow: 0px 2px 4px 0px rgba(25,25,41,0.05);
-        border-radius: 2px;
-        border: 1px solid rgba(220,222,229,1);
-    }
-
-    .navigation-footer {
-        height: 52px;
-        width: 100%;
-        margin: 32px 0 0 ;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-top: 1px solid #DCDEE5;
-        color: #63656E;
-        font-size: 12px;
-    }
-
-    .navigation-admin {
-        @mixin popover-panel-mxin 170px #63656E;
-    }
-
-    .tippy-popper {
-        .tippy-tooltip.navigation-profile-theme {
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
-        }
-    }
-=======
 @import './css/reset.css';
 @import './css/app.css';
 
@@ -432,5 +289,4 @@ export default {
     box-shadow: none;
   }
 }
->>>>>>> ad2c0996b448168a3b3c473a8b6f74fa19261fc0
 </style>

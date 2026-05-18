@@ -3,6 +3,19 @@ module.exports = async function user(req, res, next) {
     next();
     return;
   }
+
+  if (process.env.NODE_ENV === 'development' && process.env.BK_USE_REAL_LOGIN !== 'true') {
+    res.json({
+      code: 0,
+      message: 'ok',
+      data: {
+        username: process.env.BK_DEV_USERNAME || 'admin',
+        avatar_url: '',
+      },
+    });
+    return;
+  }
+
   const request = require('request');
   request(`${process.env.BK_LOGIN_URL}api/v3/is_login/?bk_token=${req.cookies.bk_token}`, (err, response, body) => {
     if (err) {

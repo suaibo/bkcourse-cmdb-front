@@ -17,12 +17,46 @@ const mockTable = require('./api/table');
 const app = new Express();
 
 const PORT = process.env.PORT || 5000;
+const backendTarget = process.env.BK_BACKEND_API_PREFIX || process.env.BK_BACKEND_URL || '';
+const backendApiPaths = [
+  '/biz-list',
+  '/set-list',
+  '/module-list',
+  '/host-list',
+  '/host-detail',
+  '/search-file',
+  '/backup-file',
+  '/backup-record',
+];
 
 /** 仅解决空模版直接部署时，模拟的接口，防止直接部署接口404，实际项目可删除 */
 mockTable(app);
 
 app.use(cookieParser());
 app.use(user);
+
+backendApiPaths.forEach((apiPath) => {
+  app.all(apiPath, (req, res) => {
+    if (!backendTarget) {
+      res.status(502).json({
+        result: false,
+        message: 'BK_BACKEND_API_PREFIX is not configured',
+        data: null,
+      });
+      return;
+    }
+
+    const target = `${backendTarget.replace(/\/$/, '')}${req.originalUrl}`;
+    req.pipe(request({
+      url: target,
+      method: req.method,
+      headers: {
+        ...req.headers,
+        host: undefined,
+      },
+    })).pipe(res);
+  });
+});
 
 // 注入全局变量
 const GLOBAL_VAR = {
@@ -94,5 +128,3 @@ app.set('view engine', 'html');
 app.listen(PORT, () => {
   console.log(`App is running in port ${PORT}`);
 });
-
-
