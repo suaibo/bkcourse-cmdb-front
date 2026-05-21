@@ -10,6 +10,7 @@ const path = require('path');
 const artTemplate = require('express-art-template');
 const cookieParser = require('cookie-parser');
 const history = require('connect-history-api-fallback');
+const request = require('request');
 const user = require('./middleware/user');
 
 const mockTable = require('./api/table');
