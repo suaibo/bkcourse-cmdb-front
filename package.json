@@ -15,8 +15,8 @@
   "dependencies": {
     "art-template": "^4.13.2",
     "axios": "^0.21.1",
-    "babel-plugin-import-bk-magic-vue": "latest",
-    "bk-magic-vue": "latest",
+    "babel-plugin-import-bk-magic-vue": "2.1.11",
+    "bk-magic-vue": "2.5.8",
     "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "^1.4.5",
     "enhanced-resolve": "^5.10.0",
